@@ -4,7 +4,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install  # Ensures all dependencies are installed
 
-COPY . .  # Copy the entire project
+COPY ./ ./  # Copy the entire project
 RUN npm run build
 
 FROM nginx:alpine

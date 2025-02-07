@@ -66,4 +66,7 @@ if __name__ == '__main__':
     if not os.path.exists('todo.db'):
         with app.app_context():
             db.create_all()
-    app.run(host='::', port=5000)
+
+    # Force Flask to use the generated self-signed cert
+    app.run(host='::', port=5000, ssl_context=('/app/cert.pem', '/app/key.pem'))
+

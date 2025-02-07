@@ -1,8 +1,10 @@
 FROM node:18 AS build
 WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
+
+COPY package.json package-lock.json ./
+RUN npm install  # Ensures all dependencies are installed
+
+COPY . .  # Copy the entire project
 RUN npm run build
 
 FROM nginx:alpine

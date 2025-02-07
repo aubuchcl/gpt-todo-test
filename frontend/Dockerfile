@@ -2,9 +2,9 @@ FROM node:18 AS build
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm install  # Ensures all dependencies are installed
+RUN npm install
 
-COPY ./ ./  # Copy the entire project
+COPY . .
 RUN npm run build
 
 FROM nginx:alpine
